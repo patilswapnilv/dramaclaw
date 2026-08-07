@@ -182,6 +182,7 @@ async def test_audio_generate_route_dispatches_indextts2(monkeypatch, tmp_path):
     assert calls == [
         {
             "ctx": ctx,
+            "product_surface": "mainline",
             "task_type": "audio_generation_indextts2",
             "episode": 3,
             "payload": {
@@ -335,6 +336,7 @@ async def test_audio_billing_quote_uses_server_planned_quantity(monkeypatch, tmp
         "model": "mainline.beat_audio_generation",
         "params": generation._audio_billing_payload([2, 4], billable_chars=9),
         "quantity": 2,
+        "product_surface": "mainline",
         "user_id": "user_1",
     }
 
@@ -364,6 +366,7 @@ async def test_single_beat_audio_route_dispatches_indextts2(monkeypatch, tmp_pat
     assert calls == [
         {
             "ctx": ctx,
+            "product_surface": "mainline",
             "task_type": "audio_generation_indextts2",
             "episode": 3,
             "payload": {
